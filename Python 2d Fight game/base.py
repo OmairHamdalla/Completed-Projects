@@ -1,8 +1,40 @@
 import module as extra
 import random
 import time
-
 class Game:
+    def __init__ (self):
+        self.menu()
+
+    def menu(self):
+        print("Welcome to 2D Python Fighting Game!")
+        inp = input(
+"""
+    Enter:
+    1.Play the game
+    2.Instructions
+    3.About
+    -->
+"""            
+        )
+
+        if int(inp) == 1 : game = Core()
+        elif  int(inp) == 2: self.instructions()
+        elif  int(inp) == 3: self.about()
+        else: print("Invalid entry")
+
+
+    def instructions():
+        print("To play the game you choose to attack or defend each turn,\nAttacking would be an approximate number close to your attack average number thats given to your character.\nSame thing goes for defending too.")
+        input("\nPress anything to go back...")
+        extra.clear()
+
+    def about():
+        print("To play the game you choose to attack or defend each turn,\nAttacking would be an approximate number close to your attack average number thats given to your character.\nSame thing goes for defending too.")
+        input("\nPress anything to go back...")
+        extra.clear()
+
+
+class Core:
     def __init__(self):
         blob = Entity("Blob", 13 , 16,"Blobber spat")
         ghosterk = Entity("Ghosterk", 10 , 19,"Fire Charge")
@@ -22,7 +54,7 @@ class Game:
         time.sleep(1)
 
         extra.sure("Are you Ready?")
-        extra.counter(5)
+        extra.counter(3)
         extra.clear()
 
         self.isDone = False
@@ -72,9 +104,8 @@ class Game:
             elif self.enemy.health <= 0:
                 print(self.player.shape)
                 print("WARRIOR YOU WON!")
-            print("Game closing in 10 secs")
-            time.sleep(10)
-            exit()
+            print("Going to main menu in 5 secs")
+            extra.counter(5)
             
 
     def pointSetter(self,pointAvg,isAttack):
@@ -101,7 +132,6 @@ class Game:
             print(f"Yet {attacker.name} {attacker.attName} and breaks the block! {hit} Damage to {victim.name}!")
             print(f"Hit! {hit} Damage done to {victim.name}!")
             
-
 
     def attackAndAttack(self):
         playerDamage = self.pointSetter(self.player.damageAvg,1)
@@ -133,7 +163,7 @@ class Entity:
         self.damageAvg = damage
         self.defenceAvg = defence
         self.attName = attName
-        self.health = 100
+        self.health = 1
         self.shape = extra.getShape(self.name)
 
 class Player:
