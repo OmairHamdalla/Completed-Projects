@@ -1,0 +1,5 @@
+Fajr: 05:45
+Duhur: 12:57
+Asr: 15:59
+Maghrib: 18:30
+Ishaa: 19:49
