@@ -93,8 +93,7 @@ class HigherLower:
                 print("Current card: ", self.current_card)
             
             next_card = self.deck.draw_card()
-
-            print(Card.ranks.index(next_card.rank) , Card.ranks.index(self.current_card.rank))
+            
             guess = input("\nWill the next card be higher (h) or lower (l)? ")
 
             if guess.lower() == "h":
@@ -116,8 +115,6 @@ class HigherLower:
                 else:
                     print("Wrong! Game over, Your final score:", self.score)
                     break
-
-            
 
             else:
                 print("Invalid choice. Please enter 'h' or 'l'.")
